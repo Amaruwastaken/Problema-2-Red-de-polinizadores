@@ -1,0 +1,29 @@
+{
+  "flores": [
+    {"id": 1, "x": 10, "y": 20, "tipo": "lavanda", "nectar": 50, "color": "#9b59b6"},
+    {"id": 2, "x": 30, "y": 15, "tipo": "girasol", "nectar": 80, "color": "#f1c40f"},
+    {"id": 3, "x": 50, "y": 40, "tipo": "margarita", "nectar": 30, "color": "#ecf0f1"},
+    {"id": 4, "x": 65, "y": 70, "tipo": "rosa", "nectar": 60, "color": "#e74c3c"},
+    {"id": 5, "x": 80, "y": 55, "tipo": "lavanda", "nectar": 45, "color": "#8e44ad"},
+    {"id": 6, "x": 25, "y": 80, "tipo": "margarita", "nectar": 35, "color": "#ecf0f1"},
+    {"id": 7, "x": 90, "y": 20, "tipo": "girasol", "nectar": 70, "color": "#f39c12"},
+    {"id": 8, "x": 45, "y": 90, "tipo": "rosa", "nectar": 55, "color": "#c0392b"}
+  ],
+  "condiciones": {
+    "viento": {"velocidad": 5, "direccion": "NO"},
+    "zonas_riesgo": [
+      {"x": 70, "y": 10, "radio": 12, "descripcion": "Zona de aves depredadoras"},
+      {"x": 15, "y": 75, "radio": 10, "descripcion": "Pantano"}
+    ]
+  },
+  "polinizador": {
+    "energia_inicial": 100,
+    "capacidad_carga": 200,
+    "velocidad": 2
+  },
+  "cultivo": {
+    "ancho": 100,
+    "alto": 100,
+    "nombre": "Campo Norte"
+  }
+}
