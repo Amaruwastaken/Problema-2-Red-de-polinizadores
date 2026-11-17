@@ -17,7 +17,7 @@
       "viento": {"velocidad": 5, "direccion": "NO"},
       "zonas_riesgo": [
         {"x": 70, "y": 10, "radio": 12, "descripcion": "Zona de aves depredadoras"},
-        {"x": 15, "y": 75, "radio": 10, "descripcion": "Pantano"}
+        {"x": 15, "y": 75, "radio": 10, "descripcion": "prado"}
     ]
   },
 
@@ -34,6 +34,6 @@
   {
       "ancho": 100,
       "alto": 100,
-      "nombre": "Campo Norte"
+      "nombre": "Campo pokemon"
   }
 }
