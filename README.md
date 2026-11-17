@@ -60,46 +60,31 @@ Define las características del polinizador utilizadas para calcular el recorrid
 | `capacidad_carga` | número | Cantidad máxima de néctar que puede transportar. |
 | `velocidad` | número | Velocidad de desplazamiento del polinizador. |
 
-## Uso del archivo
+## Códigos HTTP comunes
 
-Mantener el nombre y las claves principales (`flores`, `condiciones`, `polinizador`
-y `cultivo`) permite que otros programas puedan interpretar el archivo.
+Significados de códigos estándar que pueden aparecer al usar una API; no implica
+que todos estén implementados por este proyecto.
 
-Desde JavaScript, los datos se pueden cargar mediante una petición HTTP:
+| Código | Nombre estándar | Significado |
+| --- | --- | --- |
+| `200 OK` | OK | La solicitud se procesó correctamente. |
+| `201 Created` | Created | La solicitud se completó y creó un recurso. |
+| `202 Accepted` | Accepted | La solicitud fue recibida y aceptada para su procesamiento, pero aún no se completó. |
+| `400 Bad Request` | Bad Request | La solicitud tiene datos o formato inválidos. |
+| `401 Unauthorized` | Unauthorized | Falta autenticación válida para acceder al recurso. |
+| `403 Forbidden` | Forbidden | El servidor entendió la solicitud, pero deniega el acceso. |
+| `404 Not Found` | Not Found | El recurso solicitado no existe. |
+| `405 Method Not Allowed` | Method Not Allowed | El método HTTP no está permitido para ese recurso. |
+| `409 Conflict` | Conflict | La solicitud entra en conflicto con el estado actual del recurso. |
+| `418 I'm a teapot` | I'm a teapot | Código humorístico de la RFC 2324; indica que el servidor rechaza preparar café porque es una tetera. |
+| `422 Unprocessable Content` | Unprocessable Content | El formato de la solicitud es válido, pero sus instrucciones o datos no se pueden procesar. |
+| `429 Too Many Requests` | Too Many Requests | Se enviaron demasiadas solicitudes en un período determinado. |
+| `500 Internal Server Error` | Internal Server Error | Ocurrió un error inesperado en el servidor. |
+| `502 Bad Gateway` | Bad Gateway | Un servidor que actúa como intermediario recibió una respuesta inválida del servidor ascendente. |
+| `503 Service Unavailable` | Service Unavailable | El servicio no está disponible temporalmente. |
+| `504 Gateway Timeout` | Gateway Timeout | Un servidor intermediario no recibió a tiempo una respuesta del servidor ascendente. |
 
-```javascript
-fetch("cultivo.json")
-  .then((respuesta) => {
-    if (!respuesta.ok) {
-      throw new Error(`No se pudo cargar el JSON: ${respuesta.status}`);
-    }
-    return respuesta.json();
-  })
-  .then((datos) => {
-    console.log(datos.cultivo);
-    console.log(datos.flores);
-  })
-  .catch((error) => console.error(error));
-```
+### Error de conexión
 
-Desde Python:
-
-```python
-import json
-
-with open("cultivo.json", "r", encoding="utf-8") as archivo:
-    datos = json.load(archivo)
-
-print(datos["cultivo"]["nombre"])
-print(datos["polinizador"]["energia_inicial"])
-```
-
-Para probarlo en un navegador, desde la raíz del proyecto ejecuta:
-
-```bash
-python3 -m http.server 8000
-```
-
-Después abre `http://localhost:8000`. El código JavaScript debe hacerse desde el
-servidor, ya que cargar `cultivo.json` directamente con `fetch` desde `file://`
-puede bloquearse por las políticas de seguridad del navegador.
+No es un código HTTP: ocurre cuando no se logra establecer la conexión con el
+servidor, por lo que no se recibe una respuesta HTTP.
