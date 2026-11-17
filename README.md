@@ -76,7 +76,7 @@ que todos estén implementados por este proyecto.
 | `404 Not Found` | Not Found | El recurso solicitado no existe. |
 | `405 Method Not Allowed` | Method Not Allowed | El método HTTP no está permitido para ese recurso. |
 | `409 Conflict` | Conflict | La solicitud entra en conflicto con el estado actual del recurso. |
-| `418 I'm a teapot` | I'm a teapot | Código humorístico de la RFC 2324; indica que el servidor rechaza preparar café porque es una tetera. |
+| `418 I'm a teapot` | I'm a teapot | Código de la RFC 2324; indica que el servidor rechaza preparar café porque es una tetera. |
 | `422 Unprocessable Content` | Unprocessable Content | El formato de la solicitud es válido, pero sus instrucciones o datos no se pueden procesar. |
 | `429 Too Many Requests` | Too Many Requests | Se enviaron demasiadas solicitudes en un período determinado. |
 | `500 Internal Server Error` | Internal Server Error | Ocurrió un error inesperado en el servidor. |
