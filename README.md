@@ -130,7 +130,7 @@ Los endpoints son las direcciones que permiten interactuar con los recursos de l
 | `POST` | `/ruta/calcular` | Calcula la ruta óptima del polinizador. |
 | `GET` | `/ruta` | Consulta la última ruta calculada. |
 | `GET` | `/simulacion/resultado` | Consulta los resultados de la simulación. |
-| `POST` | `/simulacion/reiniciar` | Reinicia la simulación.
+| `POST` | `/simulacion/reiniciar` | Reinicia la simulación.|
 
 
 
