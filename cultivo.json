@@ -14,7 +14,11 @@
 
   "condiciones": 
   {
-      "viento": {"velocidad": 5, "direccion": "NO"},
+     "viento": {"velocidad": 5, "direccion": "NO"},
+     "temperatura": 25,
+     "humedad": 60,
+     "lluvia": 0,
+     "luz": 90,
       "zonas_riesgo": [
         {"x": 70, "y": 10, "radio": 12, "descripcion": "Zona de aves depredadoras"},
         {"x": 15, "y": 75, "radio": 10, "descripcion": "prado"}
@@ -24,16 +28,76 @@
 
   "polinizador": 
   {
-      "energia_inicial": 100,
-      "capacidad_carga": 200,
-      "velocidad": 2
-  },
+     "energia_inicial": 100,
+     "capacidad_carga": 200,
+     "velocidad": 2,
+     "energia_minima": 10,
+     "consumo_energia": 0.5,
+     "nectar_actual": 0,
+     "radio_deteccion": 20,
+     "resistencia_viento": 5,
+     "posicion_inicial": {
+            "x": 0,
+            "y": 0
+        }
+    },
+
 
 
   "cultivo": 
   {
       "ancho": 100,
       "alto": 100,
-      "nombre": "Campo pokemon"
-  }
+      "nombre": "Campo Floral",
+      "obstaculos": [
+          {"x": 40, "y": 30, "radio": 5, "descripcion": "Arbusto"},
+          {"x": 60, "y": 60, "radio": 8, "descripcion": "Roca"},
+          {"x": 20, "y": 50, "radio": 6, "descripcion": "Pequeño árbol" },
+          {"x": 75, "y": 25, "radio": 4, "descripcion": "Estanque"}
+      ]
+  },
+
+    "respuestas_api":
+     {
+            "errores": [
+        {
+            "codigo": 400,
+            "estado": "Bad Request",
+            "mensaje": "La solicitud contiene datos incorrectos.",
+            "ejemplo": "Falta el parámetro de coordenadas."
+        },
+        {
+            "codigo": 401,
+            "estado": "Unauthorized",
+            "mensaje": "No se proporcionó una autenticación válida."
+        },
+        {
+            "codigo": 404,
+            "estado": "Not Found",
+            "mensaje": "La flor solicitada no existe.",
+            "ejemplo": "No se encontró una flor con ID 15."
+        },
+        {
+            "codigo": 405,
+            "estado": "Method Not Allowed",
+            "mensaje": "El método HTTP utilizado no está permitido."
+        },
+        {
+            "codigo": 422,
+            "estado": "Unprocessable Entity",
+            "mensaje": "Los valores proporcionados no son válidos."
+        },
+        {
+            "codigo": 429,
+            "estado": "Too Many Requests",
+            "mensaje": "Se ha superado el límite de solicitudes."
+        },
+        {
+            "codigo": 500,
+            "estado": "Internal Server Error",
+            "mensaje": "Ocurrió un error inesperado en el servidor."
+        }
+    ]
+}
+
 }
