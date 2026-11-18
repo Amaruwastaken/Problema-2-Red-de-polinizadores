@@ -1,5 +1,8 @@
-# Problema-2-Red-de-polinizadores
-Un polinizador recorre un cultivo de flores con energía limitada, viento y zonas de riesgo. Debe elegir una ruta que maximice el néctar recolectado mientras minimiza el gasto energético. La API planifica la ruta óptima y calcula el costo de energía y la probabilidad de éxito del recorrido.
+# Problema 2 · Red de polinizadores
+
+Un polinizador recorre un cultivo de flores con energía limitada, viento y zonas de riesgo. Debe elegir una ruta que maximice el néctar recolectado mientras minimiza el gasto energético.
+
+La API planifica la ruta óptima y calcula el costo de energía y la probabilidad de éxito del recorrido.
 
 ## Descripción
 
@@ -18,9 +21,9 @@ Define las dimensiones y el nombre del área de cultivo.
 | `ancho` | número | Anchura del área de cultivo. |
 | `alto` | número | Altura del área de cultivo. |
 | `nombre` | texto | Nombre identificador del cultivo. |
-| `obstaculos` | lista | Conjunto de obstáculos presentes dentro del cultivo.
+| `obstaculos` | lista | Conjunto de obstáculos presentes dentro del cultivo. |
 
-Cada elemento de `obstaculos` contiene `x`, `y`, `radio` y `descripcion`.  Los obstaculos representa elementos que pueden dificultar el movimiento de los polinizadores.
+Cada elemento de `obstaculos` contiene `x`, `y`, `radio` y `descripcion`. Los obstáculos representan elementos que pueden dificultar el movimiento de los polinizadores.
 
 ### `flores`
 
@@ -47,10 +50,10 @@ Agrupa las condiciones que pueden afectar el recorrido.
 | --- | --- | --- |
 | `viento.velocidad` | número | Intensidad del viento. |
 | `viento.direccion` | texto | Dirección del viento. En el archivo actual es `"NO"`. |
-| `temperatura` | número | Temperatura ambiental del cultivo. 
-| `humedad` | número | Porcentaje de humedad ambiental.
-| `lluvia` | número | Cantidad o intensidad de lluvia.
-| `luz` | número | Nivel de iluminación del ambiente.
+| `temperatura` | número | Temperatura ambiental del cultivo. |
+| `humedad` | número | Porcentaje de humedad ambiental. |
+| `lluvia` | número | Cantidad o intensidad de lluvia. |
+| `luz` | número | Nivel de iluminación del ambiente. |
 | `zonas_riesgo` | lista | Zonas circulares que representan áreas peligrosas. |
 
 Cada elemento de `zonas_riesgo` contiene `x`, `y`, `radio` y `descripcion`. El
@@ -66,34 +69,34 @@ Define las características del polinizador utilizadas para calcular el recorrid
 | `energia_inicial` | número | Energía disponible al comenzar la ruta. |
 | `capacidad_carga` | número | Cantidad máxima de néctar que puede transportar. |
 | `velocidad` | número | Velocidad de desplazamiento del polinizador. |
-| `energia_minima` | número | Cantidad mínima de energía que debe conservar.
-| `consumo_ennergia` | número | Energía consumida durante el desplazamiento, según el modelo de simulación.
-| `nectar_actual` | número | Cantidad de néctar que transporta actualmente.
-| `radio_detección` | número | Distancia máxima a la que puede detectar flores.
-| `resitencia_viento` | número | Capacidad del polinizador para resistir los efectos del viento.
-| `posicion_inicial` | objeto | Coordenadas donde comienza el recorrido.
+| `energia_minima` | número | Cantidad mínima de energía que debe conservar. |
+| `consumo_energia` | número | Energía consumida durante el desplazamiento, según el modelo de simulación. |
+| `nectar_actual` | número | Cantidad de néctar que transporta actualmente. |
+| `radio_deteccion` | número | Distancia máxima a la que puede detectar flores. |
+| `resistencia_viento` | número | Capacidad del polinizador para resistir los efectos del viento. |
+| `posicion_inicial` | objeto | Coordenadas donde comienza el recorrido. |
 
-Cada elemento de `posicion_inical` contiene `x`, `y`.
+Cada elemento de `posicion_inicial` contiene `x`, `y`.
 
 ## Códigos HTTP comunes
 
 Significados de códigos estándar que pueden aparecer al usar una API; no implica
 que todos estén implementados por este proyecto.
 
-| `400 Bad Request` | Bad Request | La solicitud tiene datos o formato inválidos. |
-| `401 Unauthorized` | Unauthorized | Falta autenticación válida para acceder al recurso. |
-| `404 Not Found` | Not Found | El recurso solicitado no existe. |
-| `405 Method Not Allowed` | Method Not Allowed | El método HTTP no está permitido para ese recurso. |
-| `422 Unprocessable Content` | Unprocessable Content | El formato de la solicitud es válido, pero sus instrucciones o datos no se pueden procesar. |
-| `429 Too Many Requests` | Too Many Requests | Se enviaron demasiadas solicitudes en un período determinado. |
-| `500 Internal Server Error` | Internal Server Error | Ocurrió un error inesperado en el servidor. |
+| Código | Nombre | Descripción |
+| --- | --- | --- |
+| `400` | Bad Request | La solicitud tiene datos o formato inválidos. |
+| `401` | Unauthorized | Falta autenticación válida para acceder al recurso. |
+| `404` | Not Found | El recurso solicitado no existe. |
+| `405` | Method Not Allowed | El método HTTP no está permitido para ese recurso. |
+| `422` | Unprocessable Entity | El formato de la solicitud es válido, pero sus datos no se pueden procesar. |
+| `429` | Too Many Requests | Se enviaron demasiadas solicitudes en un período determinado. |
+| `500` | Internal Server Error | Ocurrió un error inesperado en el servidor. |
+
 ### Error de conexión
 
 No es un código HTTP: ocurre cuando no se logra establecer la conexión con el
 servidor, por lo que no se recibe una respuesta HTTP.
-
-
-## ENPOINTS
 
 ## Endpoints de la API
 
@@ -101,6 +104,8 @@ Los endpoints son las direcciones que permiten interactuar con los recursos de l
 
 ### Flores
 
+| Método | Ruta | Descripción |
+| --- | --- | --- |
 | `GET` | `/flores` | Obtiene todas las flores del cultivo. |
 | `GET` | `/flores/{id}` | Consulta una flor por su identificador. |
 | `POST` | `/flores` | Registra una nueva flor. |
@@ -110,27 +115,33 @@ Los endpoints son las direcciones que permiten interactuar con los recursos de l
 
 ### Condiciones ambientales
 
+| Método | Ruta | Descripción |
+| --- | --- | --- |
 | `GET` | `/condiciones` | Consulta las condiciones ambientales. |
 | `PATCH` | `/condiciones` | Actualiza las condiciones ambientales. |
 
 ### Polinizador
 
+| Método | Ruta | Descripción |
+| --- | --- | --- |
 | `GET` | `/polinizador` | Consulta las características del polinizador. |
 | `PATCH` | `/polinizador` | Actualiza sus características. |
 
 ### Cultivo
 
+| Método | Ruta | Descripción |
+| --- | --- | --- |
 | `GET` | `/cultivo` | Consulta la información del cultivo. |
 | `GET` | `/cultivo/obstaculos` | Consulta los obstáculos del cultivo. |
 | `GET` | `/cultivo/zonas-riesgo` | Consulta las zonas de riesgo. |
 
 ### Simulación y rutas
 
+| Método | Ruta | Descripción |
+| --- | --- | --- |
 | `POST` | `/simulacion/iniciar` | Inicia una simulación. |
 | `POST` | `/ruta/calcular` | Calcula la ruta óptima del polinizador. |
 | `GET` | `/ruta` | Consulta la última ruta calculada. |
 | `GET` | `/simulacion/resultado` | Consulta los resultados de la simulación. |
-| `POST` | `/simulacion/reiniciar` | Reinicia la simulación.|
-
-
+| `POST` | `/simulacion/reiniciar` | Reinicia la simulación. |
 
